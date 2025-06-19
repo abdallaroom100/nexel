@@ -41,6 +41,83 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap" rel="stylesheet">
 
+<style>
+/* تحسين شكل الراديو مع أنيميشن */
+.custom-radio {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  z-index: 20;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.custom-radio input[type="radio"] {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+  position: absolute;
+}
+.custom-radio .checkmark {
+  position: relative;
+  display: block;
+  height: 28px;
+  width: 28px;
+  background: linear-gradient(135deg, #fff 60%, #e6eaff 100%);
+  border: 3px solid #bfc6e0;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px #0001;
+  transition: border-color 0.25s, box-shadow 0.25s, background 0.25s, transform 0.25s;
+  will-change: border-color, box-shadow, background, transform;
+}
+.custom-radio input[type="radio"]:checked ~ .checkmark {
+  border-color: #2e3458;
+  background: radial-gradient(circle at 50% 50%, #2e3458 60%, #fff 100%);
+  box-shadow: 0 0 0 6px #2e34581a, 0 2px 8px #0001;
+  transform: scale(1.12) rotate(8deg);
+  animation: radio-pop 0.35s cubic-bezier(.68,-0.55,.27,1.55);
+}
+@keyframes radio-pop {
+  0% { transform: scale(0.7) rotate(-10deg); }
+  60% { transform: scale(1.18) rotate(10deg); }
+  100% { transform: scale(1.12) rotate(8deg); }
+}
+.custom-radio .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.custom-radio input[type="radio"]:checked ~ .checkmark:after {
+  display: block;
+}
+.custom-radio .checkmark:after {
+  top: 7px;
+  left: 7px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 8px #2e3458aa;
+  position: absolute;
+  transition: background 0.2s;
+}
+.offer-img-wrapper {
+  border: 6px solid transparent;
+  transition: border 0.2s;
+  border-radius: 1rem;
+}
+.offer-img-wrapper.selected {
+  border: 8px solid #ff4d4f;
+  width: fit-content;
+    border-radius: 27px;
+
+}
+</style>
 
 </head>
 
@@ -334,19 +411,31 @@
                     لا تنتظر أكثر، تحكم بحياتك الزوجية الآن واستعد الثقة والسعادة في علاقتك الزوجية
                 </span>
             </h2>
-            <div class=" flex flex-col justify-center md:flex-row gap-[1.5rem]">
-                <div class="  d-flex align-items-center justify-content-center flex item-start justify-start flex-1">
-
-                    <div class="block4-price flex items-start justify-around"
-                    style="transform: scale(1.06) translateY(10px);"
-                    >
-                        <img src="numm images/last--section--edit.png" alt="MAXMIZER Gel price" class="max-h-[500px]">
+            <div class="flex flex-col  gap-[0.3rem] rounded-lg py-10">
+                <div class="d-flex align-items-center justify-content-center w-fit mx-auto flex item-start justify-start  flex-1 rounded-lg relative group-offer" id="offer1" style="cursor:pointer;">
+                    <label class="custom-radio lg:block hidden">
+                      <input type="radio" name="offer" id="radio-offer1" value="offer1" class="offer-radio" checked>
+                      <span class="checkmark"></span>
+                    </label>
+                    <div class="block4-price flex items-start justify-around rounded-lg offer-img-wrapper selected">
+                        <img src="forthelastD.jpg" alt="MAXMIZER Gel price" class="max-h-[450px] max-h-[300px] rounded-2xl offer-img">
                     </div>
-
                 </div>
+                <div class="d-flex align-items-center justify-content-center w-fit mx-auto flex item-start justify-start flex-1 rounded-lg relative group-offer" id="offer2" style="cursor:pointer;">
+                    <label class="custom-radio lg:block hidden">
+                      <input type="radio" name="offer" id="radio-offer2" value="offer2" class="offer-radio">
+                      <span class="checkmark"></span>
+                    </label>
+                    <div class="block4-price flex items-start justify-around rounded-lg offer-img-wrapper">
+                        <img src="forforthelast.jpg" alt="MAXMIZER Gel price" class="max-h-[500px] rounded-2xl offer-img">
+                    </div>
+                </div>
+                <input type="hidden" name="selected_offer" id="selected_offer" value="offer1">
+            </div>
+            <div class=" flex flex-col justify-center md:flex-row gap-[1.5rem]">
                 <div class=" flex-[0.8]  flex flex-col justify-center ">
 
-                    <div class="form flex flex-col md:flex-row items-center justify-center"  >
+                    <div class="form flex flex-col md:flex-row items-center justify-center w-full max-w-[700px] mx-auto"  >
                         <div class="form-container flex-1 items-center justify-center " id="formContainer1">
                             <div class="block4-last">
                                 <img src="numm images/cream.png" class="img-fluid" alt="">
@@ -374,7 +463,7 @@
                             </div>
                             <input type="hidden" name="entry.754746203"  value="test0001" id="article">
                             <input type="hidden" name="entry.1023840735" value="v1" id="version">
-                            <input type="hidden" name="entry.673826131" value="Computer" id="device"> 
+                            <input type="hidden" name="entry.1576285653" value="العرض الاول" id="offer"> 
                             <div class="clearfix"></div>
                             <button id="btnNext" class="btn block1-btn form-call " type="submit">
                                 اطلب الآن
@@ -418,5 +507,38 @@ document.querySelector(".error-1").style.display = "none"
     <script src="js/bootstrap.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/plugin.js"></script>
+    <script>
+    // اختيار العرض وتغيير الborder وتحديث input hidden
+    const offerRadios = document.querySelectorAll('.offer-radio');
+    const offerWrappers = document.querySelectorAll('.offer-img-wrapper');
+    const offerGroups = document.querySelectorAll('.group-offer');
+    const selectedOfferInput = document.getElementById('selected_offer');
+
+    function selectOffer(idx) {
+        offerRadios[idx].checked = true;
+        offerWrappers.forEach((el, i) => {
+            el.classList.toggle('selected', i === idx);
+        });
+        // تحديث القيمة حسب الاختيار
+        if (offerRadios[idx].value === 'offer1') {
+            selectedOfferInput.value = 'العرض الاول';
+            document.querySelector("#offer").setAttribute("value","العرض الاول")
+        } else {
+            selectedOfferInput.value = 'العرض التاني مع الهديه المجانيه';
+            document.querySelector("#offer").setAttribute("value",'العرض التاني مع الهديه المجانيه')
+        }
+    }
+    offerGroups.forEach((group, idx) => {
+        group.addEventListener('click', (e) => {
+            if (!e.target.classList.contains('offer-radio')) {
+                selectOffer(idx);
+            }
+        });
+    });
+    offerRadios.forEach((radio, idx) => {
+        radio.addEventListener('change', () => selectOffer(idx));
+    });
+    selectOffer(0);
+    </script>
 </body>
 </html>
