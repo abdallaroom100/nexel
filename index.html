@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<script src="js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript">
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
     <!--
 
-    var url = $(location).attr('href'),
-
-        fparts = url.split("?"),
-        first_part = fparts[fparts.length - 1];
+    var url = $(location).attr("href"),
+      fparts = url.split("?"),
+      first_part = fparts[fparts.length - 1];
     // if (screen.width <= 767) {
     //     if (url == first_part)
     //         document.location = "mobile.html";
@@ -15,530 +14,376 @@
     //         document.location = "mobile.html?" + first_part;
     // }
     //-->
+  </script>
 
-</script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>NEXEL</title>
+    <link rel="shortcut icon" href="images/file (1).png" />
+    <link rel="icon" href="images/file (1).png" />
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/media.css" /> -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>NUMB</title>
-    <link rel="shortcut icon" href="images/file (1).png">
-    <link rel="icon" href="images/file (1).png">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/media.css">
-    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
 
-<style>
-/* تحسين شكل الراديو مع أنيميشن */
-.custom-radio {
-  position: absolute;
-  left: 18px;
-  top: 18px;
-  z-index: 20;
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.custom-radio input[type="radio"] {
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  cursor: pointer;
-  position: absolute;
-}
-.custom-radio .checkmark {
-  position: relative;
-  display: block;
-  height: 28px;
-  width: 28px;
-  background: linear-gradient(135deg, #fff 60%, #e6eaff 100%);
-  border: 3px solid #bfc6e0;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px #0001;
-  transition: border-color 0.25s, box-shadow 0.25s, background 0.25s, transform 0.25s;
-  will-change: border-color, box-shadow, background, transform;
-}
-.custom-radio input[type="radio"]:checked ~ .checkmark {
-  border-color: #2e3458;
-  background: radial-gradient(circle at 50% 50%, #2e3458 60%, #fff 100%);
-  box-shadow: 0 0 0 6px #2e34581a, 0 2px 8px #0001;
-  transform: scale(1.12) rotate(8deg);
-  animation: radio-pop 0.35s cubic-bezier(.68,-0.55,.27,1.55);
-}
-@keyframes radio-pop {
-  0% { transform: scale(0.7) rotate(-10deg); }
-  60% { transform: scale(1.18) rotate(10deg); }
-  100% { transform: scale(1.12) rotate(8deg); }
-}
-.custom-radio .checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-.custom-radio input[type="radio"]:checked ~ .checkmark:after {
-  display: block;
-}
-.custom-radio .checkmark:after {
-  top: 7px;
-  left: 7px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 8px #2e3458aa;
-  position: absolute;
-  transition: background 0.2s;
-}
-.offer-img-wrapper {
-  border: 6px solid transparent;
-  transition: border 0.2s;
-  border-radius: 1rem;
-}
-.offer-img-wrapper.selected {
-  border: 8px solid #ff4d4f;
-  width: fit-content;
-    border-radius: 27px;
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
 
-}
-</style>
-
-</head>
-
-
-
-
-<body>
-
-    <!--====================================================-->
-    <!--Start block1-->
-    
-
-        
-    </div>
-    <div class="block1-top section-1">
-         <div class="section_one_container w-full relative ">
-          <div class="section-one-content absolute  z-10">
-            <h2>
-                توقف عن المعاناة والإحراج بسبب سرعة القذف وابدأ  <br> الاستمتاع بالعلاقة التي تستحقها أنت وشريكتك!
-            </h2>
-            <h2 class="oswald-section">NUMB Cream</h2>
-            <span>        
-                
-استمتع بمتعة العلاقة لمدة أطول بدون آثار جانبية
-            </span>
-          </div>
-             <img src="numm images/secion-1.jpg" alt="">
-         </div>
-
-        
-    </div>
-    <div class="block1-top section-2 p-3">
-         
-        <div class="section-two  bg-[#2e3458] max-w-[1200px] mx-auto ">
-      <h3>
-      الحل أصبح الآن بين يديك: منتجنا الطبيعي 100% يزيد من مدة العلاقة ليمنحك أداء أقوى ومتعة لا تنسى ،ويعيد لك الثقة من جديد
-      </h3>
-        </div>  
-             
-         </div>
-    <section class="block1 text-center " style="margin-bottom: 2rem;">
-        <div class="container">
-            <div class=" flex md:flex-row flex-col-reverse items-center justify-center md:gap-[40px]" >
-                <div class="p-2" style="
-                        display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-                    ">
-
-
-                    <div class="block1-head2">
-                      استعد رجولتك وثقتك بنفسك مرة أخرى مع منتج نمب كريم.
-                    </div>
-                    <div class="block1-head2">
-                         تخلص من سرعة القذف واستمتع بلحظات حميمية تدوم لمدة أطول.
-
-                    </div>
-
-                    <div class="block1-head2">
-                      و لا تدع هذه المشكلة  تسرق منك متعة الحياة.
-
-                    </div>
-                   
-
-                 
-                        <button class="block1-btn btn rush" style="
-                        width: 98%;
-  font-size: clamp(20px,3vw,40px);
-  padding: 6px;
-                        ">
-                            اطلب الآن
-                        </button>
-               
-
-                </div>
-
-                <div class="" >
-                    <div class="block-img">
-                        <!-- <img src="numm images/file (1).png" class="img-fluid" alt="STIFFO Power Gel" style="max-height: 600px;"> -->
-                        <img src="numm images/numb-Current View.png" class="img-fluid image-edit" alt="STIFFO Power Gel" style="max-height: 600px;
-                            width: clamp(658px, 70vw, 670px);
-                        ">
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-    </section>
-    <!--====================================================-->
-    <!--Start block2-->
-    <section class="block2 ">
-        <div class="container flex flex-col md:flex-row">
-          <div class="image flex-1">
-            <img src="numm images/Group 1.png" alt="">
-          </div>
-       <div class="content flex flex-col  flex-1 " >
-        <div class="content-top  ">
-            <h2>لماذا <span>NUMB Cream</span></h2>
-            <h2>هو الحل الأمثل لمشكلاتك؟</h2>
-        </div>
-        <div class="content-bottom md:mr-[17px]">
-            <span>
-                إذا كنت تعاني من سرعـــة القـــــذف أو القلق بشأن الأداء
-                الجنســـي، فأنت لست وحدك، أظهرت الدراسات أن أكثر
-                من 70٪ من الرجال يعانون من هذه المشكلة في مرحلة
-                ما من حيــــــــــاتهم .
-            </span>
-            <span>
-                لكن الآن مع NUMB يمكنك التمتع بحياة زوجية سعيدة
-                وطـويلــــــــــة بـــــدون قلــــــــق .
-            </span>
-            <span>
-                حل طبيعي تمامًا وفعال، تم تطويره بعناية من قبل أفضل
-                الخبراء في مجـــال الصحة الجنسيــــــــة، ويضمن لك تجربة
-                فريــــــــدة من نوعها تحقق لك ولشريكتك الرضا الكـــــامل .
-            </span>
-        </div>
-       </div>
-        </div>
-    </section>
-    <section class="block1 text-center p-2" style="margin-bottom: 2rem;">
-        <div class="container section-middle " style="    max-width: 1360px;padding-bottom: 10px;">
-            <div class=" flex md:flex-row flex-col-reverse items-center justify-center " >
-                <div class="order-1 md:order-0" >
-                    <div class="block-img ">
-                        <!-- <img src="numm images/file (1).png" class="img-fluid" alt="STIFFO Power Gel" style="max-height: 600px;"> -->
-                        <img src="numm images/timeEdit.png" class="img-fluid " alt="STIFFO Power Gel" style="max-height: 600px;
-                            width: clamp(658px, 70vw, 670px);
-                        ">
-                    </div>
-                </div>
-                <div class="p-2 order-0 md:order-1 gap-[10px]" style="
-                        display: flex;
-    flex-direction: column;
-   margin-top: 2vw;
-
-    
-                    ">
-
-
-                    <div class="flex flex-col text-start ">
-                        <div class="block1-head2 font-bold text-madam" >
-                            زيــادة مدة الجمـــاع
-                        </div>
-                        <span>استمتع بعلاقة أطول وبدون الشعور بالقلق أو الضغط</span>
-                    </div>
-                    <div class="flex flex-col text-start ">
-                        <div class="block1-head2 font-bold text-madam">
-                            توقف عن القلق بشأن الأداء
-                        </div>
-                        <span>
-                           ستكتشف أن التحكم والرضا في متناول يدك، لتستمتع بكل لحظة.
-                        </span>
-                    </div>
-                    <div class="flex flex-col text-start ">
-                        <div class="block1-head2 font-bold text-madam">
-                            الحفاظ ع الإنتصاب لأطول فترة ممكنة.
-                        </div>
-                        <span>
-    عن طريق تأخير القذف فإن الإنتصاب يستمر لمدة أطول مما يمنحك متعة وأداء أقوى.
-
-                        </span>
-                    </div>
-                    <div class="flex flex-col text-start ">
-                        <div class="block1-head2 font-bold text-madam">
-                            ثقــــــــــة متجـــــددة
-                        </div>
-                        <span>
-                            استعد ثقتك بنفسك ورجولتك وحقق الرضا الكامل لك ولشريكتك في كل ليلة.
-
-                        </span>
-                    </div>
-                    <!-- <div class="block1-head2">
-                        المنتـــــــج الافضـــــــــــل والأشـهــــر الحل الآمن والفعّال لتحسين حياتك الزوجية
-                    </div>
-
-                    <div class="block1-head2">
-                        الحل المثالي الذي يمنحك القدرة والتحكم الذي لطالما حلمت به، بدون أي آثار جانبية
-                    </div>
-                    -->
-
-                 
-               
-
-                </div>
-
-               
-            </div>
-
-
-        </div>
-    </section>
-
-    <!--====================================================-->
-
-    <!-- section 3 -->
-
-    <section class="w-full overflow-hidden">
-      
-        <img src="./numm images/edit__cooo.jpg" style=" height: auto;     width:clamp(300px,100vw,1190px) ; 
-   margin: auto;
-  pointer-events: none;
-  transform: scale(1.07) translateX(-10px) translateY(2px);
-" alt="">
-    </section>
-    <!--Start block3 -->
-    <section class=" text-center block3 bottom">
-        <div class="container">
-
-            <!-- <h2 class="block3-head ">
-                هذا الشعور محرج
-                <br>
-                <span>أليس كذلك؟</span>
-            </h2> -->
-            <div class="row justify-content-between flex flex-col md:flex-row items-center gap-[0.9rem] px-4 py-2">
-                <div class="flex-1 d-flex align-items-center justify-content-center">
-                    <div class="block3-img">
-                        <!-- <img src="numm images/Rectangle 255.png" class="img-fluid" alt=""> -->
-                        <img src="numm images/Rectangle 255.png" class="img-fluid last-image-edit" alt="">
-                    </div>
-                </div>
-                <div class="flex-1">
-                    <p class="block3-p" style="font-size: clamp(14px,1.7vw,30px); margin: 0;">
-                        في كل مرة تبدأ، تجد نفسك فجأة على وشك الانتهاء خلال دقــائق
-                        أو حتى ثوانٍ قليلة.. يبدأ جسمك في التوتر، يتسارع تنفسك وفجــأة
-                        ينتهي كل شيء قبل أن تبدأ فعلياً! تنظر إلى زوجتــــــك فتراها مزيجًا
-                        من الدهشة والشفقة، تقول لك بلطف "ليســــت مشكلــة" لكن في
-                        داخلها تتمنى أن تستمر لفترة أطول وتمنحها المــزيد من المتعـــــة
-                        إنه موقف محرج حقًا يترك أثرًا على رجــولتك ويجعلك تتجنب النظر
-                        في عينيها بعد تجـــربة لا ترقى للتوقعــــــــــات
-                    </p>
-
-                </div>
-               
-            </div>
-
-            <div class="block3-img2 rush">
-                <img src="numm images/Rectangle 23.png" class="img-fluid" alt="">
-            </div>
-
-
-        </div>
-    </section>
-
-
-
-
-
-    <!--====================================================-->
-    <!--Start block5-->
-    <section class="block5 text-center">
-        <h2 class="block2-head " style="color: #2e3458; margin-bottom: 20px;" >
-            الأسئلة الشائعة (QAF):
-        </h2>
-      <div class="container grid  grid-cols-1 md:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 gap-[1.2rem] lg:gap-[1rem] place-content-center">
-    <div class="item relative flex items-center justify-center">
-    <img src="numm images/Group 16.png" style="max-height: 400px; transform: translateX(10px);" alt="">
-    </div>
-    <div class="item relative flex items-center justify-center">
-    <img src="numm images/Group 16-1.png" style="max-height: 400px; transform: translateX(10px);" alt="">
-    </div>
-    <div class="item relative flex items-center justify-center">
-    <img src="numm images/Group 16-2.png" style="max-height: 400px; transform: translateX(10px);" alt="">
-    </div>
-    <div class="item relative flex items-center justify-center">
-    <img src="numm images/Group 16-3.png" style="max-height: 400px; transform: translateX(10px);" alt="">
-    </div>
-   
-  
-      </div>
+  <body dir="rtl">
+    <!-- navbar section -->
+    <nav class="navbar container mx-auto flex !px-8 md:!max-w-[755px] lg:!max-w-[1000px] md: xl:!max-w-[1300px] !p-0">
+      <header class="navbar-logo text-[#a7af30]" id="navbar-logo">NEXEL GEL</header>
+      <div class="navbar-toggle" id="menu-toggle">☰</div>
+      <div class="navbar-menu" id="navbar-menu">
+        <ul id="nav-links">
+          <li><a href="#" data-link="home">الرئيسية</a></li>
+          <li><a href="#" data-link="offers">عروضنا</a></li>
+          <li><a href="#" data-link="services">خدماتنا</a></li>
+        </ul>
        
+        <a href="#contact-form">
 
+           <button>احصل علي المنتح</button>
+        </a>
+      </div>
+    </nav>
+    <!-- navbar section -->
+    <!-- home section -->
+    <section class="home container !mx-auto items-center justify-center  md:!gap-[3rem]">
+      <div class="home-img  flex items-center w-full relative md:w-auto justify-center home__image !gap-[1rem]">
+
+        <div style="
+          background: rgb(247 0 0);
+          filter: blur(112px);
+    width: 74%;
+    left: 15%;
+    top: 52%;
+          " class="power absolute w-[30%] h-[30%] -z-10 bottom-[1rem]   left-[50%] ">
+
+        </div>
+        <div style="
+          background: rgb(65, 161, 173);
+          filter: blur(77px);
+    width: 47%;
+    left: 15%;
+    top: 17%;
+          " class="power absolute w-[30%] h-[30%] -z-10 bottom-[1rem]   left-[50%] ">
+
+        </div>
+        <img src="images/home.webp" loading="eager" class="md-[7] !w-[100%] !h-[380px] home__image  sm:!h-[350px] md:!h-[450px] md:!w-[330px] lg:!w-[410px] lg:!h-[500px] xl:!w-[550px] xl:!h-[650px]" alt="home img" />
+      </div>
+      <div class="home-info !gap-[2rem] flex-[1] lg:p-0 xl:p-5 xl:max-w-[683px] lg:max-w-[376px]">
+        <div class="">
+          <h3 class="text-[1.2rem] text-center md:text-start md:text-[1.3rem] !mb-[0.8rem] lg:!text-[1.4rem] xl:!text-[2.4rem] !font-[500] leading-[1.3] font-bold">
+            تخلص من مشاكلك في غرفة النوم واستعيد متعة الشباب من جديد وحافظ ع
+            الإنتصاب والحجم <span>طوووووول</span> مدة العلاقة.
+          </h3>
         
+        
+           <span class="!block md:!hidden">
+           <p class="!text-white block1-head2 pl-1 mt-8 mr-2 pr-5 mb-5  text-[15.9px] font-bold">
+               بين يديك: منتجنا الطبيعي 100% يزيد من مدة العلاقة ليمنحك أداء أقوى
+            ومتعة لا تنسى     ويعيد لك الثقة من جديد 
+            
+           </p>
+           <p class="!text-white block1-head2 pl-1 pr-5 mb-5 mr-2 text-[15.9px] font-bold">
+   استعيد فحولتك المفقوده وعبر عن
+            رجولتك وتحكم في وقت العلاقة واعطيهــا المتعــة التي تحقــق
+            سعادتهــا 
+           </p>
+           <p class="!text-white block1-head2  pl-1 pr-5 mb-5 mr-2 text-[15.9px] font-bold ">
+      لا تتــــــــــــردد فــــــي طلــــــــب المنتـــــــج
+            الآن واستعيــــــــد فحولــــــــة وقـــــــوة الشبــــــاب من جديد
+           </p>
+         
+         </span>
+             
+          
+        
+          <p class="md:text-[15px] lg:text-[15px] text-justify md:text-start xl:text-[24px] leading-[32px]  font-thin !max-w-[800px] hidden md:block" >
+             بين يديك: منتجنا الطبيعي 100% يزيد من مدة العلاقة ليمنحك أداء أقوى
+            ومتعة لا تنسى ،ويعيد لك الثقة من جديد  <br>استعيد فحولتك المفقوده وعبر عن
+            رجولتك وتحكم في وقت العلاقة واعطيهــا المتعــة التي تحقــق
+            سعادتهــا <br>لا تتــــــــــــردد فــــــي طلــــــــب المنتـــــــج
+            الآن واستعيــــــــد فحولــــــــة وقـــــــوة الشبــــــاب من جديد
+          </p>
+        </div>
+       <a href="#contact-form">
+        <img style="filter: contrast(2); " loading="lazy" class="h-fit cursor-pointer max-w-[230px] mx-auto sm:mx-0 !mt-4 lg:!mt-9 rounded-2xl lx:max-w-[300px] mt-5" src="lion/bosternew.png" alt="">
+       </a>
+      </div>
+    </section>
+    <!-- home section -->
+
+    <!--firstnseperate  -->
+    <section class="custom-section seperate-section gap-[0rem] xl:!gap-[1rem] !p-3 !pt-8 !pb-8 md:!p-11 md:p-11 ">
+     <div class="flex-col-reverse lg:flex-row-reverse flex items-center justify-center container mx-auto">
+      <div class="text-content container mx-auto  !markazi flex items-center justify-center flex-col">
+        <h2 class="!text-[1.5rem] sm:!text-[1.6rem] md:!text-[1.7rem] lg:!text-[1.9rem] xl:!text-[2.3rem] markazi  text-center md:text-start">“سرعـــة القـــــذف <span class="highlight font-[500]">وضعف الأداء الجنســـي</span>”</h2>
+        <p class="!text-[20px]  !font-bold md:!text-[22px]  !font-[400] !max-w-[480px] xl:!text-[27px] xl:!max-w-[580px] markazi !text-center lg:!text-start" style="color: #ACACAC;
+        text-align: right;
+        font-family: 'Markazi Text';
+        font-style: normal;
+        line-height: 40px; 
+        letter-spacing: 0.5px;">
+          الكابوس المزعج الذي يؤرق منام الكثير من الرجال المتزوجين. و الهاجس
+          المرعب الذي يخشاه الكثير من الشباب العزاب. والعذاب النفسي و الجسدي
+          الذي تعاني منه في صمت الكثير من النساء. ورغم كل هذا يفضل الكثير من
+          الرجال دفن رؤوسهم في الرمال و الإبقاء على هذه المشكلة المحرجة دون
+          البحث عن حل لها
+        </p>
+      </div>
+      <div class="side-box !gap-[1rem]">
+      
+        <img style="filter: drop-shadow(299px 299px -1px black); " class="h-fit   mx-auto sm:mx-0 !max-w-[240px] md:!max-w-full  " src="images/Group 389.png" alt="">
+       
+      </div>
+     </div>
+      
+  
+      
+    </section>
+    <!--firstnseperate  -->
+
+    <!-- problems section -->
+    <section class="problems-section  container mx-auto max-w-[1250px] !mt-[15px]  lg:p-10">
+      <div class="section-title !w-full">
+        <!-- <p>هل هذه أحد مشاكلك <span class="highlight"> في غرف النوم؟</span></p>
+        <img src="/images/Rectangle 7763.png" alt="" /> -->
+        <img style="filter: contrast(2); " class="  md:scale-[1] xl:w-[500px]" src="images/head.jpg" alt="" />
+      </div>
+
+      <div class="problem-cards !gap-4 md:!gap-[30px]">
+        <!-- Card 1 -->
+        <div class="cards ">
+          <div class="icon">
+            <img src="images/man.png" loading="lazy" class="!w-[100px] lg:!w-[126px] " alt="early ejaculation icon" />
+          </div>
+          <p class="!text-[1.1rem] xl:!text-[1.3rem]">
+            في كل مرة تبدأ، تجد نفسك فجأة على وشك الانتهاء خلال دقــائق أو حتى ثوانٍ قليلة.. يبدأ جسمك في التوتر، يتسارع تنفسك وفجــأة ينتهي كل شيء قبل أن تبدأ فعلياً!
+          </p>
+        </div>
+        <div class="divider"></div>
+        <!-- Card 2 -->
+        <div class="cards">
+          <div class="icon">
+            <img src="images/woman.png" loading="lazy" class="!w-[80px] lg:!w-[90px] !min-h-[90px] lg:!min-h-[120px] " alt="early ejaculation icon" />
+          </div>
+          <p class="!text-[1.1rem] xl:!text-[1.3rem]">
+            تنظر إلى زوجتــــــك فتراها مزيجًا من الدهشة والشفقة، تقول لك بلطف "ليســــت مشكلــة" لكن في داخلها تتمنى أن تستمر لفترة أطول وتمنحها المــزيد
+          </p>
+        </div>
+        <div class="divider"></div>
+        <!-- Card 3 -->
+        <div class="cards">
+          <div class="icon">
+            <img src="images/warn.png"   loading="lazy" class="!w-[85px] lg:!w-[100px] " alt="early ejaculation icon" />
+          </div>
+          <p class="!text-[1.1rem] xl:!text-[1.3rem]">
+            موقف محرج حقًا يترك أثرًا على رجــولتك ويجعلك تتجنب النظر في عينيها بعد تجـــربة لا ترقى للتوقعــــــــــات
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- problems section -->
+
+    <!-- probel solution second seperate -->
+    <section class="seperate-section solution md:!mt-[60px] !mt-0 !px-[0rem]">
+      <div class="container flex !justify-between items-center max-w-[1200px] flex-col md:flex-row  mx-auto">
+        <div >
+        <h2 class="!text-[1.6rem]  md:text-start text-center md:!text-[1.5rem] xl:!text-[3rem] !font-[500]">أبشر ولا تقلق <span>الحل</span> الآن بين يديك</h2>
+        <p class="md:text-[1.1rem] text-[1rem] text-center md:text-start mb-5 mt-3 xl:text-[1.3rem] max-w-[500px] md:!max-w-[550px] !font-[300] mx-auto md:!mx-0 !max-w-[280px] md:w-auto md:!font-[300]">والوقت ليس متأخرا لإستعادة فحولتك وقوة ومتعة الشباب من جديد</p>
+      </div>
+   
+       <a href="#contact-form">
+
+         <img style="filter: contrast(2);"  class="h-fit cursor-pointer md:!w-[420px] rounded-2xl  !max-w-[220px] md:!max-w-[300px]"  src="lion/bosternew.png" alt="">
+       </a>
+       
+      
+   
+      </div>
+    </section>
+    <!-- probel solution second seperate -->
+
+    <!-- wife section -->
+    <section class="wifeProbelm-section container !mt-0 md:!mt-12 mx-auto !p-0 !justify-center lg:gap-[4rem] xl:gap-[6rem] sm:mr-auto mr-0 sm:gap-[1rem] xl:!px-10">
+      <div class="info container mx-auto p-3 !w-fit xl:!mx-0 !justify-center">
+        
+   
+          <img style="filter:  drop-shadow(2px 4px 6px black);" class=" lg:max-w-[570px] block md:hidden" src="images/Group 403.png" alt="" />
+          <img style="filter:  drop-shadow(2px 4px 6px black);" class=" md:!max-w-[450px] xl:!max-w-[580px] hidden md:block" src="doctor.png" alt="" />
+       
+        <p class="text-[1.1rem] text-center leading-[1.7] !max-w-[336px] sm:!max-w-[430px] md:!max-w-[490px] xl:text-[1.3rem] mt-[1rem] text-[#CECDCD] md:text-white xl:!max-w-[614px] lg:max-w-[550px] md:!font-[300]">
+          معظم الرجال بسبب الخوف من القذف المبكر يفقدون القدرة علي الاحتفاظ
+          بالانتصاب الكامل والقوي وبالتالي تنتهي العلاقة بالفشل قبل حتي الايلاج
+          ! ولكن منتج NEXEL سيمكنك من اطالة العلاقة لاطول وقت ممكن وبالتالي
+          الحفاظ ع الإنتصاب الذي يحقق لك ولها المتعة.
+        </p>
+        <div>
+          <img style="filter:  contrast(2)" class="mt-8 md:!max-w-[400px]  lg:max-w-[550px] xl:!max-w-[800px]  " src="images/head2.png" alt="" />
+        </div>
+        <p class="!text-[1.1rem] text-center  leading-[1.7] xl:!text-[1.3rem] mt-[1rem] xl:!max-w-[614px] lg:!max-w-[450px] text-[#CECDCD] md:text-white md:!font-[300]">
+          وذلك بسبب تأخير القذف مما يؤدي أيضا للحفاظ على الإنتصاب والحجم لأطول
+          مدة ممكنة مما يمنحك مزيدا من الوقت لتجربة أوضاع أكثر متعة.
+        </p>
+        <a href="#contact-form">
+         <img style="filter: contrast(2); " class="h-fit cursor-pointer max-w-[230px] text-[#CECDCD] md:text-white rounded-2xl lx:max-w-[300px] mt-5" src="lion/bosternew.png" alt="">
+        </a>
+        </div>
+      <div class="problem-img md:!mt-7 !w-full flex justify-center lg:!w-fit  mb-8"><img class=" xl:!w-[430px] xl:!h-[430px] md:!w-[370px] max-h-[360px] md:!h-[360px] w-[100%]  sm:w-[500px] md:h-[500px]" src="images/problem.webp" alt="" /></div>
+    </section>
+    <!-- wife section -->
+
+    <!-- advice section -->
+    <section class="advice-section seperate-section ">
+      <div class="doctor-img "><img src="images/doctorMobile.png"   loading="lazy" class="xl:!w-[500px]  !h-[300px] md:!h-[450px] block md:hidden" alt="" /></div>
+      <div class="container flex mx-auto flex-col lg:!flex-row items-center p-3 flex md:gap-[2rem] justify-between">
+        <div class="doctor-img "><img src="images/doctor.webp"   loading="lazy" class="xl:!w-[500px]  !h-[300px] md:!h-[450px] hidden md:block"  alt="" /></div>
+      <div class="info">
+       
+        
+          <img style="filter: contrast(2);" class="md:block hidden" src="group.png" alt="" />
+        
+        <div class="paragraphs max-w-[720px] flex flex-col gap-5 mr-2">
+          <p class="!text-[17px] font-bold lg:!text-[19px] xl:!text-[21px]  mt-5">
+            حيث أن القلق من سرعة القذف أو الخوف من الأداء يمكن أن يؤثر بشكل
+            مباشر على قوة انتصابك؟ هذا التوتر يدفع جسمك لإفراز مواد تضيّق
+            الأوعية الدموية في القضيب، مما يعيق تدفق الدم الكافي ويمنعك من تحقيق
+            الانتصاب الكامل الذي تطمح إليه.
+          </p>
+          <p class="!text-[17px] font-bold lg:!text-[19px] xl:!text-[21px]  mt-2">
+            منتجنا يركز على مساعدتك على التحكم في سرعه القذف وزيادة مدة العلاقة
+            لأطول فترة ممكنة، وعندما تتخلص من هذه المشاكل ، ستتمكن من تحقيق
+            انتصابات كاملة وأقوى في كل مرة.
+          </p>
+          <p class="!text-[17px] font-bold lg:!text-[19px] xl:!text-[21px]  mt-2">
+            وهذا بدوره، ومع الانتصابات القوية والمتكررة، يمكن أن يساهم في تمدد
+            الأنسجة بشكل طبيعي، مما يسمح لك باستعادة أقصى إمكاناتك والإستمتاع
+            بعلاقة أطوووول وأداء أقوى وبالطبع متعة أكثر.
+          </p>
+        </div>
+      </div>
+      </div>
+    </section>
+   
+
+ 
+
+    <section class="get-survey ">
+      <div class="flex flex-col gap-[3em]">
+ 
+        <div class="container flex justify-center items-center gap-[3rem]">
+          <div class="product-details">
+           <div class="flex items-center justify-center">
+            <div class="sm:!w-auto !w-[79%]">
+              <h2 class="title !text-[1.7rem] md:!text-[4rem] !mb-0 sm:mb-3 ">اطلب عبوتك الآن</h2>
+           
+            <p class="sub-title !text-[2rem] sm:!text-[4rem] !mb-2 sm:mb-8"> NEXEL GEL</p>
+            <div class="price-btn">
+              <p class="price text-[5rem] lg:!text-[9rem] leading-[0.9]">175</p>
+              <p class="old-price !text-[2rem] lg:!text-[4rem]">بدلاً من <span>200</span> دينار</p>
+            </div>
+            </div>
+            <div class="product-image block md:hidden h-full w-full flex-[1]">
+              <img class="!h-[230px] sm:!h-[300px] !relative !max-w-[100%]" loading="lazy" src="/numm images/bottle4.png" alt="" />
+            </div>
+            </div>
+            <hr class="divider2" />
+            <p class="note !text-[15px] md:!text-[1.7rem]">    
+              السعر شامل مصاريف التوصيل والشحن لجميع المدن
+            </p>
+            <p class="policy !text-[16px] md:!text-[1.2rem]">
+              سياسة الاسترجاع: في حالة عدم رضاك عن النتائج ضمان استرجاع خلال 14 يوم
+            </p>
+           
+          </div>
+          <div class="product-image hidden md:block">
+            <img src="/numm images/bottle4.png" loading="lazy" alt="" />
+          </div>
+        </div>
+      </div>
     </section>
 
 
 
+     <section class="form-section text-center">
+      <img class="rounded-2xl max-w-[95%] xl:max-w-[700px] mx-auto" src="lastshare.gif" loading="lazy" alt="">
+      <!-- <h1 class="md:!text-[1.7rem]"> 
+        سجل البيانات التالية لتأكيد الحصول على المنتج وسوف يصلك في أسرع وقت
+      </h1> -->
 
-    <!--====================================================-->
-    <!--Start block4-->
+  <div class="form-container !p-2">
+    <div class="p-4 rounded-xl" style=" background:linear-gradient(to bottom, #5a5a5a, #2e2e2e)">
+    <h2 class="md:!text-[2rem] flex-row-reverse flex gap-[0.5rem] justify-center">
+      <strong>NEXEL</strong><span class="font-bold">GEL</span>
+      <!-- <img  class="max-w-[140px] mb-2"  src="numm images/cream.png" loading="lazy" alt=""> -->
+    </h2>
+    <p  class="!text-[1rem] ">  
+                                     سجل البيانات التالية الآن وسوف يصلك المنتج بأسرع وقت
+    
+    </p>
 
-    <form method="POST" id="contact-form" action="javascript: SubmitForm()" onsubmit="return validateForm()" role="form" class="block4 container-fluid text-center">
-        <div class="container">
-            <h2 class="block4-head">
-                العرض الخاص لفترة محدودة
-                <br>
-                <span> 
-                    لا تنتظر أكثر، تحكم بحياتك الزوجية الآن واستعد الثقة والسعادة في علاقتك الزوجية
-                </span>
-            </h2>
-            <div class="flex flex-col  gap-[0.3rem] rounded-lg py-10">
-                <div class="d-flex align-items-center justify-content-center w-fit mx-auto flex item-start justify-start  flex-1 rounded-lg relative group-offer" id="offer1" style="cursor:pointer;">
-                    <label class="custom-radio lg:block hidden">
-                      <input type="radio" name="offer" id="radio-offer1" value="offer1" class="offer-radio" checked>
-                      <span class="checkmark"></span>
-                    </label>
-                    <div class="block4-price flex items-start justify-around rounded-lg offer-img-wrapper selected">
-                        <img src="forthelastD.jpg" alt="MAXMIZER Gel price" class="max-h-[450px] max-h-[300px] rounded-2xl offer-img">
-                    </div>
-                </div>
-                <div class="d-flex align-items-center justify-content-center w-fit mx-auto flex item-start justify-start flex-1 rounded-lg relative group-offer" id="offer2" style="cursor:pointer;">
-                    <label class="custom-radio lg:block hidden">
-                      <input type="radio" name="offer" id="radio-offer2" value="offer2" class="offer-radio">
-                      <span class="checkmark"></span>
-                    </label>
-                    <div class="block4-price flex items-start justify-around rounded-lg offer-img-wrapper">
-                        <img src="forforthelast.jpg" alt="MAXMIZER Gel price" class="max-h-[500px] rounded-2xl offer-img">
-                    </div>
-                </div>
-                <input type="hidden" name="selected_offer" id="selected_offer" value="offer1">
-            </div>
-            <div class=" flex flex-col justify-center md:flex-row gap-[1.5rem]">
-                <div class=" flex-[0.8]  flex flex-col justify-center ">
+    <form method="POST" id="contact-form"  action="javascript: SubmitForm()" onsubmit="return validateForm()" role="form" class="block4 !text-black container-fluid text-center">
+    <input style="background-color: white " name="entry.859169917"   type="text" placeholder="أسمك بالكامل" required>
+  
+    <input class="form-control form-control-input phone_number" id="form-phone" minlength="10" maxlength="10" data-label="Phone" name="entry.1924047137" style="background-color: white;" type="tel" placeholder="رقم الهاتف" required>
+       
+ 
+        
 
-                    <div class="form flex flex-col md:flex-row items-center justify-center w-full max-w-[700px] mx-auto"  >
-                        <div class="form-container flex-1 items-center justify-center " id="formContainer1">
-                            <div class="block4-last">
-                                <img src="numm images/cream.png" class="img-fluid" alt="">
-                            </div>
-                            <div class="form-head">
-                                سجــل بيــــانـــــاتك لطلب المنتـــــج
-                                <br>
-                                <span>
-                                    سوف نتواصل معك في أسرع وقت
-                            </span>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control form-control-input" id="text" placeholder="الآسم كامل" name="entry.562105314" required>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control form-control-input phone_number" type="number" minlength="11" maxlength="11" data-label="Phone" name="entry.1981339059" id="form-phone" placeholder="رقم الهاتف" required>
-                                <p style="text-align: right; color: indianred; display: none; margin-top: 3%;" class="error-2">الحد الأدنى لعدد الأرقام هو 11</p>
-                                <p style="text-align: right; color: indianred;display: none; margin-top: 3%;" class="error-1">الحد الأقصى لعدد الأرقام هو 11</p>
-                            </div>
-							<div class="form-group">
-                                <input type="text" class="form-control form-control-input" id="text" placeholder="المدينة" name="entry.640924808" required>
-                            </div>
-							<div class="form-group">
-                                <input type="text" class="form-control form-control-input" id="text" placeholder="العنوان بالتفصيل" name="entry.1301342143" required>
-                            </div>
-                            <input type="hidden" name="entry.754746203"  value="test0001" id="article">
-                            <input type="hidden" name="entry.1023840735" value="v1" id="version">
-                            <input type="hidden" name="entry.1576285653" value="العرض الاول" id="offer"> 
-                            <div class="clearfix"></div>
-                            <button id="btnNext" class="btn block1-btn form-call " type="submit">
-                                اطلب الآن
-                            </button>
-                            
-                     
-                    </div>
-					</div>
-       </div>
+         <input style="background-color: white;" name="entry.1683950042" type="text" placeholder="المدينة">
+    <input style="background-color: white;" name="entry.347023946" type="text" placeholder="العنوان بالتفصيل">
+    <input type="hidden" name="entry.439965765"  value="test0001" id="agenCode">
+    <input type="hidden" name="entry.1023840735" value="v1" id="version">
+    <input type="hidden" name="entry.1576285653" id="selected_offer" value="عرض ال 225 دينار">
+    <input type="hidden" name="entry.104544846" value="العرض الاول" id="offer"> 
+    <button type="submit" >أطلب الآن</button>
+   </div>
     </form>
-    
-  
-    <!-- make change for the last edition you have to do for the last editiono of the last information for the last you should for hte last  -->
-    <!--End block4-->
-<script>
-  
-    document.querySelector("#article").setAttribute("value",(window.location.href?.split("?source=")[1]?.split("&")[0]?.split("#")[0] || "Main000"))
-    if(window.innerWidth < 900){
-        document.querySelector("#device").setAttribute("value","Mobile")
-    }
- 
+  </div>
+     </section>
+
+  </body>
+  <script>
  const phoneNumber = document.querySelector(".phone_number")
-    phoneNumber.addEventListener("input",(e)=>{
-            if(e.target.value.length > 11){
-                document.querySelector(".error-1").style.display = "block"
-                document.querySelector(".error-2").style.display = "none"
-            }else if(e.target.value.length < 10){
-document.querySelector(".error-1").style.display = "none"
-document.querySelector(".error-2").style.display = "block"
-            }else if(e.target.value.length === 10){
-                document.querySelector(".error-2").style.display = "none"
-document.querySelector(".error-1").style.display = "none"
-            }
-
-        })
-    
- 
-</script>
-    <script src="js/jquery.valiadate.js"></script>
-    <script src="js/popper.main.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/plugin.js"></script>
-    <script>
-    // اختيار العرض وتغيير الborder وتحديث input hidden
-    const offerRadios = document.querySelectorAll('.offer-radio');
-    const offerWrappers = document.querySelectorAll('.offer-img-wrapper');
-    const offerGroups = document.querySelectorAll('.group-offer');
-    const selectedOfferInput = document.getElementById('selected_offer');
-
-    function selectOffer(idx) {
-        offerRadios[idx].checked = true;
-        offerWrappers.forEach((el, i) => {
-            el.classList.toggle('selected', i === idx);
-        });
-        // تحديث القيمة حسب الاختيار
-        if (offerRadios[idx].value === 'offer1') {
-            selectedOfferInput.value = 'العرض الاول';
-            document.querySelector("#offer").setAttribute("value","العرض الاول")
-        } else {
-            selectedOfferInput.value = 'العرض التاني مع الهديه المجانيه';
-            document.querySelector("#offer").setAttribute("value",'العرض التاني مع الهديه المجانيه')
-        }
-    }
-    offerGroups.forEach((group, idx) => {
-        group.addEventListener('click', (e) => {
-            if (!e.target.classList.contains('offer-radio')) {
-                selectOffer(idx);
-            }
-        });
-    });
-    offerRadios.forEach((radio, idx) => {
-        radio.addEventListener('change', () => selectOffer(idx));
-    });
-    selectOffer(0);
-    </script>
-</body>
+ document.querySelector("#agenCode").setAttribute("value",(window.location.href?.split("?source=")[1]?.split("&")[0]?.split("#")[0] || "Main000"))
+ console.log(document.querySelector("#agenCode").getAttribute("value"))
+  </script>
+      <script src="js/jquery.valiadate.js"></script>
+      <script src="js/popper.main.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/min.js"></script>
+      <script src="js/owl.carousel.min.js"></script>
+      <script src="js/plugin.js"></script>
 </html>

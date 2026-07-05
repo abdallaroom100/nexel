@@ -24,7 +24,7 @@ function SubmitForm() {
   var jsFormData = $("#contact-form").serialize();
   $.ajax({
     type: "POST",
-    url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfpEL1FvtseZk-PHBinKHWDomyx0KpPccekAZJfuI-X4CJifg/formResponse",
+    url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdXxCqPlpw-KN0egnhgHAsnAOlxXcO6Z5cRiyV3vXJNDvir-g/formResponse",
     data: jsFormData,
     async: false,
     dataType: "xml",
